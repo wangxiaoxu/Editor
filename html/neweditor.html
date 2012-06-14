@@ -58,24 +58,24 @@ input{ vertical-align:middle; margin:0; padding:0}
 									<select id="fontSize"> 
 									</select>
 								</div>
-								<div class="fl"><img src="images/B.jpg" title="加粗"></div>
-								<div class="fl"><img src="images/i.jpg" title="斜体"></div> 
-								<div class="fl"><img src="images/U.jpg" title="下划线"></div> 
-								<div class="fl"><img src="images/A1.jpg" title="字体颜色"></div> 
-								<div class="fl2"><img src="images/SLINE.gif"></div> 
-								<div class="fl"><img src="images/pailie1.gif" title="居左"></div> 
-								<div class="fl"><img src="images/pailie2.gif" title="居中"></div> 
-								<div class="fl"><img src="images/pailie3.gif" title="居右"></div> 
-								<div class="fl"><img src="images/pailie4.gif" title="缩进"></div> 
-								<div class="fl2"><img src="images/SLINE.gif"></div>
-								<div class="fl"><img src="images/pailie5.gif" title="段落化"></div>
-								<div class="fl2"><img src="images/SLINE.gif"></div>
-								<div class="fl"><img src="images/tupianku.gif" title="插入图片"></div> 
-								<div class="fl"><img src="images/move.gif" title="插入视频"></div> 
-								<div class="fl"><img src="images/LINK.jpg" title="添加链接"></div> 
-								<div class="fr"><img src="images/yulan.gif" title="预览"></div>								
-								<div class="fr"><img src="images/SLINE.gif"></div>
-								<div class="fl fr"><img src="images/t.gif" title="源代码"></div>
+								<div class="fl"><img src="../images/B.jpg" title="加粗"></div>
+								<div class="fl"><img src="../images/i.jpg" title="斜体"></div> 
+								<div class="fl"><img src="../images/U.jpg" title="下划线"></div> 
+								<div class="fl"><img src="../images/A1.jpg" title="字体颜色"></div> 
+								<div class="fl2"><img src="../images/SLINE.gif"></div> 
+								<div class="fl"><img src="../images/pailie1.gif" title="居左"></div> 
+								<div class="fl"><img src="../images/pailie2.gif" title="居中"></div> 
+								<div class="fl"><img src="../images/pailie3.gif" title="居右"></div> 
+								<div class="fl"><img src="../images/pailie4.gif" title="缩进"></div> 
+								<div class="fl2"><img src="../images/SLINE.gif"></div>
+								<div class="fl"><img src="../images/pailie5.gif" title="段落化"></div>
+								<div class="fl2"><img src="../images/SLINE.gif"></div>
+								<div class="fl"><img src="../images/tupianku.gif" title="插入图片"></div> 
+								<div class="fl"><img src="../images/move.gif" title="插入视频"></div> 
+								<div class="fl"><img src="../images/LINK.jpg" title="添加链接"></div> 
+								<div class="fr"><img src="../images/yulan.gif" title="预览"></div>								
+								<div class="fr"><img src="../images/SLINE.gif"></div>
+								<div class="fl fr"><img src="../images/t.gif" title="源代码"></div>
 						</div>
 						<!--<div class="editct">
 							
@@ -248,6 +248,19 @@ var bardata = [
 var fontName = ["宋体","隶书","楷体","幼圆","黑体","雅黑"];
 var _fontName = ["SimSun","LiSu","KaiTi_GB2312","YouYuan","SimHei","Microsoft YaHei"];
 var fontSize = ["3","4","5","6","7"];
+var addEvent = (function() {
+    if(document.addEventListener) {
+      return function(el, type, fn) {
+        el.addEventListener(type, fn, false);
+      }        
+    } else {
+      return function(el, type, fn) {
+        el.attachEvent("on" + type, function() {
+          return fn.call(el, window.event);
+        })
+      }
+    }
+})()
 /*创建Editor*/
 var Editor = function() {}
  Editor.prototype = {
@@ -296,9 +309,10 @@ var Editor = function() {}
 			var command = $(this).attr("command");
 			_this.executeCommand(command, _this.iframe, _this.iframeDocument);
 		});
-		this.iframeDocument.addEventListener("click", function() {
+		addEvent(_this.iframeDocument, "click", function() {
 			$("#colorpicker").hide();
-		}, false);
+		})
+
  	},
  	executeCommand: function(command, iframe, iframeDocument) {
  		switch(command) {
@@ -406,8 +420,8 @@ var Editor = function() {}
  	}
  }
  $(document).ready(function() {
-    $(".fileField").change(function(){
-        $(".textfield").val($(".fileField").val());
+    $(".type-file-file").change(function(){
+		$(this).parent().find(".type-file-text").val($(this).val());
     });
  	$(".ui .txtclose").click(function() {
  		$(this).parents(".ui").hide();
