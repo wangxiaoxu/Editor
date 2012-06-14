@@ -1,0 +1,38 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*新建box*/
+.cl0228{padding:10px 20px; clear:both}
+.cl0228 ._half{width:50%; float:left;clear:none}
+.cl0228 p{ float:left;width:70px; text-align:right;padding-right:5px;}
+.cl0228 span{float:left; padding-right:5px; }
+.cl0228 li{padding:0px 0 10px 0; text-align:left; line-height:23px; clear:both}
+.cl0228 li a.cla{margin-top:-30px;}
+
+.clbox{padding:10px 20px;border:1px solid #E8E8E8; clear:both;padding-top:30px; }
+.clbox .pic{float:left; }
+.clbox .texts{float:left; padding-left:15px; width:350px; word-break:break-all;}
+.clbox  p{ line-height:25px;}
+.clbox  p span{ color:#666}
+.clbox li{ display:block; clear:both; margin-bottom:15px;}
+.clbox li a{ margin-top:10px;}
+
+/*padding;margin间距*/
+.mar_20{margin:5px 15px;}
+.pad_01{padding:20px 0 20px 10px;}
+.pad_02{padding:10px 0 20px 10px; line-height:30px;}
+.mar_10{ margin-top:40px;}
+.mar_15{ margin-left:40px;}
+
+/*按钮*/
+a.cla{width:95px;height:27px; background-image:url(../images/btn_gry.png); text-align:center; display:inline-block; line-height:27px; color:#333333}
+a.cla2{width:120px;height:27px; background-image:url(../images/btn_gry2.jpg); text-align:center; display:inline-block; line-height:27px;color:#333333}
+a.cla3{width:45px;height:27px; background-image:url(../images/btn_gry3.png); text-align:center; display:inline-block; line-height:27px;color:#333333;}
+
+/*尺寸*/
+.w01{width:180px;}
+.w02{width:400px;}
+.w03{width:350px;height:100px;}
+
+/*标签*/
+.tag_b3{border-bottom:3px solid #D8D8D8;padding:20px 0 5px 10px; margin-bottom:15px}
